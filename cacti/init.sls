@@ -47,7 +47,7 @@ install-templates:
 /usr/local/share/cacti/plugins/index.php:
   file.copy:
     - makedirs: True
-    - source: /usr/share/cacti/plugins/index.php
+    - source: /usr/share/cacti/site/plugins/index.php
 
 /usr/share/cacti/plugins:
   file.symlink:

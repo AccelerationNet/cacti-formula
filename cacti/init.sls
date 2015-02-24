@@ -49,7 +49,7 @@ install-templates:
     - makedirs: True
     - source: /usr/share/cacti/site/plugins/index.php
 
-/usr/share/cacti/plugins:
+/usr/share/cacti/site/plugins:
   file.symlink:
     - target: /usr/local/share/cacti/plugins
     - force: True

@@ -25,9 +25,12 @@ Configures a local plugins folder and installs some plugins:
 
 * `discovery` - scans networks for devices and allows adding
 * `autom8` - allows configuring rules for autogenerating graphs
+* `dpdiscover` - scans for devices using discovery protocols against
+  existing cacti hosts
 
 .. _discovery: http://docs.cacti.net/plugin:discovery
 .. _autom8: http://docs.cacti.net/plugin:autom8
+.. _dpdiscover: http://docs.cacti.net/userplugin:dpdiscover
 
 Post-install instructions
 =========================

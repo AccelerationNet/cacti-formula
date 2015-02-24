@@ -41,3 +41,11 @@ autom8-plugin-fix:
   file.rename:
     - name: {{cacti.local_cacti_path}}/plugins/autom8
     - source: {{cacti.local_cacti_path}}/plugins/trunk
+
+dpdiscover-plugin:
+  archive.extracted:
+    - name: {{cacti.local_cacti_path}}/plugins/
+    - if_missing: {{cacti.local_cacti_path}}/plugins/dpdiscover
+    - source: http://runningoffatthemouth.com/dpdiscover-latest.tgz
+    - source_hash: sha1=50b7f2fdecf1de707097f05209e2c7872535ac50
+    - archive_format: tar

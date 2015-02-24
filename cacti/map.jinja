@@ -1,8 +1,5 @@
 {% set cacti = salt['grains.filter_by']({
-  'Ubuntu': {
-    'pkg': 'cacti',
-  },
-  'Debian': {
-    'pkg': 'cacti',
-  },
-}, merge=salt['pillar.get']('cacti:lookup')) %}
+  'default' : {
+    'packages': ['cacti', 'cacti-spine', 'snmp-mibs-downloader']
+  }
+}, merge=salt['pillar.get']('cacti:lookup'), default='default') %}

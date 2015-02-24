@@ -13,10 +13,21 @@ Saltstack formula to install cacti.
 
 
 ``cacti``
-------------
+---------
 
 Installs the cacti package, spline poller, third-party MIBs, and some
 cacti templates. One major change is reconfiguring for 1m interval data.
+
+``cacti.plugins``
+-----------------
+
+Configures a local plugins folder and installs some plugins:
+
+* `discovery` - scans networks for devices and allows adding
+* `autom8` - allows configuring rules for autogenerating graphs
+
+.. _discovery: http://docs.cacti.net/plugin:discovery
+.. _autom8: http://docs.cacti.net/plugin:autom8
 
 Post-install instructions
 =========================

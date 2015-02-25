@@ -15,8 +15,14 @@ Saltstack formula to install cacti.
 ``cacti``
 ---------
 
-Installs the cacti package, spline poller, third-party MIBs, and some
-cacti templates. One major change is reconfiguring for 1m interval data.
+Installs nginx, cacti, mysql, spine poller, third-party MIBs, and some
+cacti templates. One major change is reconfiguring for 1m interval
+data. Cacti is served by nginx via php-fpm, at `http://$HOST/`.
+
+``cacti.snmp``
+---------
+
+Installs third-party MIBs
 
 ``cacti.plugins``
 -----------------
@@ -38,16 +44,16 @@ Post-install instructions
 Cacti has a few manual steps to get working. It stores it's settings
 in the db, without an API to set those. Open up a browser and hit:
 
-* ``/cacti/``
+* ``/``
 
   * click through the install wizard
   * login using ``admin``/``admin`` and change your password
 
-* ``/cacti/settings.php?tab=general``
+* ``/settings.php?tab=general``
 
   * set your SNMP defaults
 
-* ``/cacti/settings.php?tab=poller``
+* ``/settings.php?tab=poller``
 
   * Poller Type: spine
   * poller/cron interval = every minute
@@ -56,7 +62,7 @@ in the db, without an API to set those. Open up a browser and hit:
   * Number of PHP Script Servers: 2
   * The Maximum SNMP OID's Per SNMP Get Request 16
 
-* ``/cacti/settings.php?tab=visual``
+* ``/settings.php?tab=visual``
 
   * Data Queries -> Maximum Field Length: 30
   * Data Sources -> Maximum Title Length: 60

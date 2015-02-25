@@ -17,10 +17,12 @@ Saltstack formula to install cacti.
 
 Installs nginx, cacti, mysql, spine poller, third-party MIBs, and some
 cacti templates. One major change is reconfiguring for 1m interval
-data. Cacti is served by nginx via php-fpm, at `http://$HOST/`.
+data.
+
+Cacti is served by nginx via php-fpm, at ``http://$HOST/``.
 
 ``cacti.snmp``
----------
+--------------
 
 Installs third-party MIBs
 
@@ -29,9 +31,9 @@ Installs third-party MIBs
 
 Configures a local plugins folder and installs some plugins:
 
-* `discovery` - scans networks for devices and allows adding
-* `autom8` - allows configuring rules for autogenerating graphs
-* `dpdiscover` - scans for devices using discovery protocols against
+* discovery_ - scans networks for devices and allows adding
+* autom8_ - allows configuring rules for autogenerating graphs
+* dpdiscover_ - scans for devices using discovery protocols against
   existing cacti hosts
 
 .. _discovery: http://docs.cacti.net/plugin:discovery

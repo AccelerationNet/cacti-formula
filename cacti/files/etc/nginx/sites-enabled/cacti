@@ -1,0 +1,15 @@
+# -*- mode: nginx -*-
+# this file is managed by salt, any changes will be overwritten
+{% from "cacti/map.jinja" import cacti with context %}
+server {
+    listen 80;
+    server_name {{cacti.server_name}};
+    root {{ cacti.path }}/site;
+    index index.php index.html index.htm;
+    location ~ \.php$ {
+        try_files $uri =404;
+        include fastcgi_params;
+        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        fastcgi_index index.php;
+    }
+}

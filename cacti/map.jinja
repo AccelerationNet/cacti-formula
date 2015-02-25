@@ -1,7 +1,9 @@
 {% set cacti = salt['grains.filter_by']({
   'default' : {
-    'packages': ['cacti', 'cacti-spine', 'snmp-mibs-downloader'],
+    'cacti_packages': ['cacti', 'cacti-spine'],
+    'snmp_packages': ['snmp', 'snmp-mibs-downloader'],
     'local_cacti_path': '/usr/local/share/cacti',
-    'path': '/usr/share/cacti'
+    'path': '/usr/share/cacti',
+    'server_name': '_'
   }
 }, merge=salt['pillar.get']('cacti:lookup'), default='default') %}

@@ -4,11 +4,12 @@
     'snmp': ['snmp', 'snmp-mibs-downloader'],
     'nginx': ['nginx', 'php5-fpm'],
     'local_path': '/usr/local/share/cacti',
-    # could use `dpkg-query -L cacti | grep "site$"` to get this, but only works
-    # _after_ we install the cacti package
     'path': '/usr/share/cacti'
   }
 }, merge=salt['pillar.get']('cacti:lookup')) %}
+
+# could use `dpkg-query -L cacti | grep "site$"` to get this, but only works
+# _after_ we install the cacti package
 
 {% set cacti = salt['pillar.get']('cacti', {
     'server_name': '_'

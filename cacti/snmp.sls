@@ -1,10 +1,10 @@
-{% from "cacti/map.jinja" import cacti with context %}
+{% from "cacti/map.jinja" import packages with context %}
 
 # configure snmp
 
 snmp-packages:
   pkg.installed:
-    - names: {{ cacti.snmp_packages }}
+    - names: {{ packages.snmp }}
 
 snmp-configuration:
   # enable third-party MIBs

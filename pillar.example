@@ -1,13 +1,19 @@
 # -*- mode:yaml -*-
 
 cacti:
+  # nginx server name
+  server_name: _
   lookup:
-    cacti_packages:
+    cacti:
       - cacti
       - cacti-spine
-    snmp_packages:
+    snmp:
       - snmp
       - snmp-mibs-downloader
-    local_cacti_path: /usr/local/share/cacti
+    nginx:
+      - nginx
+      - php5-fpm
+    # where the packages manager installs cacti
     path: /usr/share/cacti
-    server_name: _
+    # where to put plugins
+    local_path: /usr/local/share/cacti

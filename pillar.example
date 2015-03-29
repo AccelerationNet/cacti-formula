@@ -3,6 +3,9 @@
 cacti:
   # nginx server name
   server_name: _
+  # serve cacti over SSL
+  ssl_certificate: /path/to/ssl-cert.crt
+  ssl_certificate_key: /path/to/private/ssl-cert.key
   lookup:
     cacti:
       - cacti

@@ -1,8 +1,7 @@
 # -*- mode: nginx -*-
 # this file is managed by salt, any changes will be overwritten
-server {
-    listen 80;
-    server_name {{server_name}};
+
+{% macro cacti_config() %}
     root {{ path }}/site;
     index index.php index.html index.htm;
     location ~ \.php$ {
@@ -11,4 +10,25 @@ server {
         fastcgi_pass unix:/var/run/php5-fpm.sock;
         fastcgi_index index.php;
     }
+{{% endmacro %}}
+
+server {
+    listen 80;
+    server_name {{server_name}};
+
+    {% if ssl_certificate %}
+    rewrite     ^   https://$server_name$request_uri? permanent;
+    {% else %}
+    {{cacti_config()}}
+    {% endif %}
 }
+
+{% if ssl_certificate %}
+server {
+    listen 443 ssl;
+    server_name {{server_name}};
+    ssl_certificate {{ssl_certificate}}
+    ssl_certificate_key {{ssl_certificate_key}}
+    {{cacti_config()}}
+}
+{% endif %}

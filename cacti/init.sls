@@ -40,6 +40,8 @@ cacti-web-config:
     - context:
       server_name: {{cacti.server_name}}
       path: {{packages.path}}
+      ssl_certificate: {{cacti.ssl_certificate}}
+      ssl_certificate_key: {{cacti.ssl_certificate_key}}
     - require:
       - pkg: cacti-webserver
   # restart nginx as needed

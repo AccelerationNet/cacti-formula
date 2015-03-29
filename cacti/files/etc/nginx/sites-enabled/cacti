@@ -27,8 +27,8 @@ server {
 server {
     listen 443 ssl;
     server_name {{server_name}};
-    ssl_certificate {{ssl_certificate}}
-    ssl_certificate_key {{ssl_certificate_key}}
+    ssl_certificate {{ssl_certificate}};
+    ssl_certificate_key {{ssl_certificate_key}};
     {{cacti_config()}}
 }
 {% endif %}

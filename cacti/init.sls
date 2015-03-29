@@ -20,6 +20,9 @@ cacti-debconf-pass:
     - name: cacti
     - data:
         'cacti/webserver': {'type': 'select', 'value': 'None'}
+{%- if salt['pillar.get']('mysql:root-pass') %}
+        'cacti/mysql/admin-pass': {'type': 'password', 'value': '{{salt['pillar.get']('mysql:root-pass')}}'}
+{% endif %}
     - require:
       - pkg: cacti-webserver
 

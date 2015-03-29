@@ -10,7 +10,7 @@
         fastcgi_pass unix:/var/run/php5-fpm.sock;
         fastcgi_index index.php;
     }
-{{% endmacro %}}
+{% endmacro %}
 
 server {
     listen 80;

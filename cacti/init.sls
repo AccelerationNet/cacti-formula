@@ -67,7 +67,7 @@ cacti-web-config:
 /etc/cacti/debian.php:
   file.replace:
     - pattern: '^//\$url_path.*'
-    - repl: '$url_path = "";'
+    - repl: '$url_path = "/";'
     - require:
         - pkg: cacti-packages
 

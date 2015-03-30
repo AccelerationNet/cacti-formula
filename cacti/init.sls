@@ -71,6 +71,13 @@ cacti-web-config:
     - require:
         - pkg: cacti-packages
 
+{{packages.path}}/site/javascript:
+  file.symlink:
+    - target: /usr/share/javascript
+    - require:
+        - pkg: cacti-packages
+
+
 # custom templates for 1m interval data, graph naming, and more Cisco
 {{packages.local_path}}/templates.xml:
   file.managed:

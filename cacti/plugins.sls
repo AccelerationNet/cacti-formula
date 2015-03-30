@@ -1,4 +1,4 @@
-{% from "cacti/map.jinja" import packages with context %}
+{% from "cacti/map.jinja" import packages,cacti with context %}
 
 include:
   - cacti
@@ -31,6 +31,22 @@ include:
     - force: True
     - require:
         - pkg: cacti-packages
+
+{% if cacti.plugins  %}
+install-git:
+  pkg.installed:
+    - name : git-core
+
+{% for name,uri in cacti.plugins.items() %}
+plugin {{name}}:
+  git.latest:
+    - name: {{uri}}
+    - target: {{packages.local_path}}/plugins/{{name}}
+    - require:
+        - pkg: install-git
+{% endfor %}
+
+{% endif %}
 
 discovery-plugin:
   archive.extracted:

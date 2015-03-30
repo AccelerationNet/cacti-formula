@@ -6,6 +6,11 @@ cacti:
   # serve cacti over SSL
   ssl_certificate: /path/to/ssl-cert.crt
   ssl_certificate_key: /path/to/private/ssl-cert.key
+
+## load additional plugins from git
+#  plugins:
+#    my-plugin: https://github.com/me/my-plugin.git
+
   lookup:
     cacti:
       - cacti
